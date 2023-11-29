@@ -3,9 +3,7 @@
 import rospy
 from assignment_1.msg import Aruco_info
 from geometry_msgs.msg import Twist
-from colorama import Fore
-import tkinter as tk
-from tkinter import ttk
+
 
 class VisionController:
     def __init__(self):
