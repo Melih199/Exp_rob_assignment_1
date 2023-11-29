@@ -25,6 +25,10 @@ This structured approach ensures a systematic and autonomous navigation process 
 
 Encapsulating the intricacies of our Aruco navigation system, the pseudocode provided below delves into the fundamental logic and sequential steps that govern the robot's autonomous movements. This representation serves as a comprehensive guide, offering a deeper insight into the algorithmic foundation that orchestrates the robot's responsive navigation behavior, specifically tailored to the identification and interpretation of Aruco markers.
 
+```bash
+Include the Pseudocode here
+```
+
 ## Installation
 
 Prepare the repository:
@@ -99,6 +103,8 @@ Executing the provided command will activate the controller script responsible f
 ```bash
 rosrun assignment_1 robot_control.py
 ```
+
+
 
 ## Conclusion and Future Improvements
 
