@@ -7,7 +7,7 @@
 
   
   <node name="robot_vision" pkg="assignment_1" type="aruco_detector.py" required="true"/>
-  <node name="control" pkg="assignment_1" type="robot_control.py" required="true" output="screen" launch-prefix="xterm -hold -e"/>
+  <node name="control" pkg="assignment_1" type="robot_control.py" required="true"/>
 
   
 </launch>
