@@ -31,37 +31,34 @@ Encapsulating the intricacies of our Aruco navigation system, the pseudocode pro
 
 Prepare the repository:
 cd ~
-mkdir assignment_1
-mkdir assignment_1/src
-cd ~/ assignment_1/src
-catkin_init_workspace
-cd ~/ assignment_1
+mkdir -r assignment_ws/src
+cd ~/ assignment_ws
 catkin_make
 
 Clone this repository to your workspace:
 
 ```bash
-cd ~/assignment_1/src
+cd ~/assignment_ws/src
 git clone https://github.com/husarion/rosbot_ros.git -b noetic
 ```
 Install dependencies:
 
 ```bash
-cd ~/assignment_1
+cd ~/assignment_ws
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
 Build the workspace:
 
 ```bash
-cd ~/assignment_1
+cd ~/assignment_ws
 catkin_make
 ```
 
 From this moment you can use rosbot simulations. Please remember that each time, when you open new terminal window, you will need to load system variables:
 
 ```bash
-source ~/assignment_1/devel/setup.sh
+source ~/assignment_ws/devel/setup.sh
 ```
 ### Clone the Aruco Navigation Package
 
@@ -75,7 +72,7 @@ git clone https://github.com/Melih199/Exp_rob_assignment_1.git
 We'll need to "make" everything in our catkin workspace so that the ROS environment knows about our new package. (This will also compile any necessary code in the package). Execute the given commands in your terminal.
 
 ```bash
-cd ~/assignment_1
+cd ~/assignment_ws
 catkin_make
 ```
 Fantastic! The installation process is complete, and now it's time to delve into the exciting world of robot exploration and experimentation. Let the robotics adventure begin! 🤖✨
