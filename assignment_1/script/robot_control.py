@@ -10,7 +10,7 @@ from tkinter import ttk
 class VisionController:
     def __init__(self):
         # Initialization
-        self.check_point = "Searching aruco marker"
+        
         self.marker_id_list = [11,12,13,15]
         self.target_size = rospy.get_param("aruco_navigation/target_size")
         self.linear_gain = rospy.get_param("aruco_navigation/linear_gain")
@@ -28,7 +28,7 @@ class VisionController:
         self.aruco_info_sub = rospy.Subscriber('aruco_info', Aruco_info, self.aruco_callback)
 
     def aruco_callback(self, aruco_info_msg):
-     
+ 
             self.vision_id = aruco_info_msg.id
             self.camera_center = aruco_info_msg.camera_center
             self.marker_center = aruco_info_msg.marker_center
@@ -70,20 +70,10 @@ class VisionController:
                     else:
                         rospy.signal_shutdown("exit")
             
-            self.print_infos()
+  
             rate.sleep()
     
-    def print_infos(self):
 
-        # Print the distance and speed information
-        rospy.loginfo(Fore.GREEN + "Target marker id %d", self.marker_id_list[self.marker_turn])
-        if self.marker_size:
-            rospy.loginfo(Fore.GREEN + "Marker size: %.2f [target 185]", self.marker_size[0])
-        else:
-            rospy.loginfo(Fore.RED + "Marker size not available")
-
-        rospy.loginfo(Fore.MAGENTA + "Angular error: %.2f", self.angular_error)
-        rospy.loginfo(Fore.MAGENTA + "Linear error: %.2f", self.linear_error)
 
     
       
