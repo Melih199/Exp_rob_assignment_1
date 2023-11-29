@@ -21,7 +21,11 @@ In our implementation, we have employed four markers with IDs 11, 12, 13, and 15
 - Marker 15: Signifies the completion of the navigation task.
 This structured approach ensures a systematic and autonomous navigation process based on the identification and sequence of ArUco markers.
 
-## Installation:
+## Pseudocode
+
+Encapsulating the intricacies of our Aruco navigation system, the pseudocode provided below delves into the fundamental logic and sequential steps that govern the robot's autonomous movements. This representation serves as a comprehensive guide, offering a deeper insight into the algorithmic foundation that orchestrates the robot's responsive navigation behavior, specifically tailored to the identification and interpretation of Aruco markers.
+
+## Installation
 
 Prepare the repository:
 cd ~
