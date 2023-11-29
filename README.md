@@ -21,9 +21,9 @@ In our implementation, we have employed four markers with IDs 11, 12, 13, and 15
 - Marker 15: Signifies the completion of the navigation task.
 This structured approach ensures a systematic and autonomous navigation process based on the identification and sequence of ArUco markers.
 
-## Pseudocode
+## Flowchart
 
-Encapsulating the intricacies of our Aruco navigation system, the pseudocode provided below delves into the fundamental logic and sequential steps that govern the robot's autonomous movements. This representation serves as a comprehensive guide, offering a deeper insight into the algorithmic foundation that orchestrates the robot's responsive navigation behavior, specifically tailored to the identification and interpretation of Aruco markers.
+Encapsulating the intricacies of our Aruco navigation system, the flowchart provided below delves into the fundamental logic and sequential steps that govern the robot's autonomous movements. This representation serves as a comprehensive guide, offering a deeper insight into the algorithmic foundation that orchestrates the robot's responsive navigation behavior, specifically tailored to the identification and interpretation of Aruco markers.
 
  <img src="https://github.com/Melih199/Exp_rob_assignment_1/assets/58879182/5d27ada1-4e73-41b3-b62d-09fe41a9a5f3.type" width="1000" height="500">
 
@@ -115,7 +115,7 @@ In concluding our Aruco Navigation project, our team has successfully developed 
 
 2. **Marker Logic:** The distinctive logic associated with each Aruco marker (11, 12, 13, and 15) provides a systematic approach, ensuring a seamless navigation sequence. The markers' roles in instructing the robot to rotate, detect subsequent markers, and reach specific destinations add a layer of intelligence to the navigation process.
 
-3. **Pseudocode:** The included pseudocode offers a comprehensive and deep insight into the algorithmic underpinnings of the navigation system. This serves as a valuable resource for understanding the logical flow and procedural steps governing the robot's movements.
+3. **Flowchart:** The included flowchart offers a comprehensive and deep insight into the algorithmic underpinnings of the navigation system. This serves as a valuable resource for understanding the logical flow and procedural steps governing the robot's movements.
 
 ### Future Improvements:
 
