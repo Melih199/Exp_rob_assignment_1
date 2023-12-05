@@ -5,7 +5,7 @@ This project is developed by:
 3. *Ahmet Samet Kosum - s5635830*
 4. *Abdelouadoud Guelmami - s546728*
 
-# Notes:
+# Notes for teammates:
  1. Seperate the readme file of simulation and real robot.
  2. Show the link of the used repos for Rosbot and aruco marker
  3. Show the dependencies more detailed.
