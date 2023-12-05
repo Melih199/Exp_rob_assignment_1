@@ -99,7 +99,7 @@ Executing the provided command will activate the controller script responsible f
 rosrun assignment_1 robot_control.py
 ```
 
-<img src="https://github.com/Melih199/Exp_rob_assignment_1/blob/Rosbot_aruco_simulation/simulation_node.gif" width="500" height="500"/>
+<img src="https://github.com/Melih199/Exp_rob_assignment_1/blob/Rosbot_aruco_simulation/simulation_node.gif" width="1000" height="800"/>
 
 
 ![](https://github.com/Melih199/Exp_rob_assignment_1/blob/Rosbot_aruco_simulation/Rosbot%20Real%20World%20Scenario.gif)
