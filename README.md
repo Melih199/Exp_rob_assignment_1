@@ -3,7 +3,15 @@ This project is developed by:
 1. *Natnael Berhanu Takele - s5446838*
 2. *Mustafa Melih Toslak - s5431021*
 3. *Ahmet Samet Kosum - s5635830*
-4. *Abdelouadoud Guelmami - s5467288*
+4. *Abdelouadoud Guelmami - s546728*
+
+# Notes:
+ 1. Seperate the readme file of simulation and real robot.
+ 2. Show the link of the used repos for Rosbot and aruco marker
+ 3. Show the dependencies more detailed.
+ 4. Add "Why we used simulation" (time, cost ext)
+ 5. Explain the nodes, msgs that have been used for simulation and realrobot
+    
 
 ## Repository Organization
 Within this repository, you will discover the "assignment_1" folder, meticulously organized to include all essential files, complemented by a comprehensive README.md file providing detailed guidance and information.
