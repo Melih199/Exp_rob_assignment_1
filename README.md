@@ -5,13 +5,6 @@ This project is developed by:
 3. *Ahmet Samet Kosum - s5635830*
 4. *Abdelouadoud Guelmami - s546728*
 
-# Notes for teammates:
- 1. Seperate the readme file of simulation and real robot.
- 2. Show the link of the used repos for Rosbot and aruco marker
- 3. Show the dependencies more detailed.
- 4. Add "Why we used simulation" (time, cost ext)
- 5. Explain the nodes, msgs that have been used for simulation and realrobot
-    
 ## Repository Organization
 Within this repository, you will discover the "assignment_1" folder, meticulously organized to include all essential files, complemented by a comprehensive README.md file providing detailed guidance and information.
 
@@ -137,7 +130,7 @@ y_cord = top_right[1] - bottom_right[1]
 size = int(np.sqrt(np.power(x_cord, 2) + np.power(y_cord, 2)))
 ```
 
-Finally the node publishes the marker_center, marker_size and camera_center(provided with /camera/color/camera_info topic).
+Finally the node publishes the marker_center, marker_size, id(provided with ArUco library) camera_center(provided with /camera/color/camera_info topic).
 
 ```python
 self.aruco_info_pub = rospy.Publisher('aruco_info', Aruco_info, queue_size=10)
@@ -154,6 +147,54 @@ info_msg.marker_size = [size]
 self.aruco_info_pub.publish(info_msg)
 ```
 
+### robot_control node ###
+
+This node is a simple PID controller for our robot it is using the information proided from  aruco_info topic and published the velocity commands 
+on /cmd_vel topic. To better understanding of this node check the flowchart above.
+
+
+```python
+self.vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
+self.aruco_info_sub = rospy.Subscriber('aruco_info', Aruco_info, self.aruco_callback)
+...
+def control_loop(self):
+        self.marker_turn=0
+        rate = rospy.Rate(20)
+        while not rospy.is_shutdown():
+
+            if self.marker_id_list[self.marker_turn] != self.vision_id:
+                # Rotate to search for the target ArUco marker
+                self.vel = Twist()          
+                self.vel.angular.z = -0.4
+                self.vel_pub.publish(self.vel)
+        
+            else:
+                self.angular_error = self.camera_center[0] - self.marker_center[0]
+                self.linear_error = self.target_size - self.marker_size[0]
+
+                # Proportional control
+                self.vel.linear.x = self.linear_gain * self.linear_error
+                self.vel.angular.z = self.angular_gain * self.angular_error
+
+                # Check for saturation in linear and angular velocities
+                self.vel.linear.x = max(min(self.vel.linear.x, 1.0), -1.0)
+                self.vel.angular.z = max(min(self.vel.angular.z, 1.0), -1.0)
+
+                # Publish velocity command
+                self.vel_pub.publish(self.vel)
+
+                if self.marker_size[0] >= self.target_size:
+            
+                    if self.marker_id_list[self.marker_turn] != 15:
+                        self.marker_turn = self.marker_turn+1
+                        self.vel.angular.z = -0.4
+                        self.vel_pub.publish(self.vel)
+                    else:
+                        rospy.signal_shutdown("exit")
+            
+            self.print_infos()
+            rate.sleep()
+```
 
 
 
