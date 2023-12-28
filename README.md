@@ -1,4 +1,4 @@
-# Aruco Navigation - Rosbot
+# Aruco Navigation - Rosbot in Simulation
 This project is developed by:
 1. *Natnael Berhanu Takele - s5446838*
 2. *Mustafa Melih Toslak - s5431021*
@@ -19,7 +19,7 @@ Within this repository, you will discover the "assignment_1" folder, meticulousl
 ## Project Overview
 This project is designed to facilitate Aruco navigation for a ROSbot robot, wherein it autonomously follows a specific Aruco Marker while maintaining a minimum safe distance. The implementation leverages ROS and Python as the primary software stacks, with the incorporation of OpenCV for Aruco detection.
 
-An ArUco marker, utilized in this context, is a synthetic square marker characterized by a distinct black border and an internal binary matrix that determines its unique identifier (ID). The black border expedites rapid detection in the image, while the binary codification enables identification and the application of error detection and correction techniques. The size of the marker determines the dimensions of the internal matrix.
+An ArUco marker, utilized in this context, is a synthetic square marker characterized by a distinct black border and an internal binary matrix that determines its unique identifier (ID). The black border expedites rapid detection in the image, while the binary codification enables identification and the application of error detection and correction techniques. The size of the marker determines the pixel size of the ArUco in the the camera frame. 
 
 In our implementation, we have employed four markers with IDs 11, 12, 13, and 15. Each marker serves a specific purpose in the navigation sequence:
 
@@ -31,13 +31,13 @@ This structured approach ensures a systematic and autonomous navigation process 
 
 ## Flowchart
 
-Encapsulating the intricacies of our Aruco navigation system, the flowchart provided below delves into the fundamental logic and sequential steps that govern the robot's autonomous movements. This representation serves as a comprehensive guide, offering a deeper insight into the algorithmic foundation that orchestrates the robot's responsive navigation behavior, specifically tailored to the identification and interpretation of Aruco markers.
+Encapsulating the intricacies of our Aruco navigation system, the flowchart provided below delves into the fundamental logic and sequential steps that govern the robot's autonomous movements.
 
  <img src="https://github.com/Melih199/Exp_rob_assignment_1/assets/58879182/5d27ada1-4e73-41b3-b62d-09fe41a9a5f3.type" width="1000" height="500">
 
 ## Installation
 
-Prepare the repository:
+Prepare the work space:
 cd ~
 mkdir -r assignment_ws/src
 cd ~/ assignment_ws
@@ -49,21 +49,21 @@ Clone this repository to your workspace:
 cd ~/assignment_ws/src
 git clone https://github.com/husarion/rosbot_ros.git -b noetic
 ```
+and follow the instructions given on husarion/rosbt_ros branch noetic.
+
 Install dependencies:
 
 ```bash
 cd ~/assignment_ws
 rosdep install --from-paths src --ignore-src -r -y
 ```
-
 Build the workspace:
 
 ```bash
 cd ~/assignment_ws
 catkin_make
 ```
-
-From this moment you can use rosbot simulations. Please remember that each time, when you open new terminal window, you will need to load system variables:
+From this moment you can use rosbot simulations. Please remember that each time, when you open new terminal window, you will need to load system variables or simply add this command on your .bashrc file.
 
 ```bash
 source ~/assignment_ws/devel/setup.sh
@@ -74,15 +74,19 @@ To incorporate this repository into the "src" folder of your recently establishe
 
 ```bash
 git clone https://github.com/Melih199/Exp_rob_assignment_1.git
+cd script
+chmod +x *py
 ```
 
 ### Make the Package
-We'll need to "make" everything in our catkin workspace so that the ROS environment knows about our new package. (This will also compile any necessary code in the package). Execute the given commands in your terminal.
+We'll need to "make" everything in our catkin workspace so that the ROS environment knows about our new package. Execute the given commands in your terminal.
 
 ```bash
 cd ~/assignment_ws
 catkin_make
 ```
+
+### Let your sytem
 Fantastic! The installation process is complete, and now it's time to delve into the exciting world of robot exploration and experimentation. Let the robotics adventure begin! 🤖✨
 
 ## Launch
