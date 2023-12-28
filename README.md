@@ -198,7 +198,7 @@ def control_loop(self):
             rate.sleep()
 ```
 
-###For real robot check the Rosbot_aruco branch###:
+### For real robot check the Rosbot_aruco branch ###:
 ```bash
 cd ~/Exp_rob_assignment_1
 git checkout Rosbot_aruco
