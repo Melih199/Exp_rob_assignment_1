@@ -27,49 +27,38 @@ Encapsulating the intricacies of our Aruco navigation system, the flowchart prov
 
  <img src="https://github.com/Melih199/Exp_rob_assignment_1/assets/58879182/5d27ada1-4e73-41b3-b62d-09fe41a9a5f3.type" width="1000" height="500">
 
-## Installation
+## Connection and Installation
 
-Prepare the work space:
+Connect the ROSbot with screen, keyboard and mouse. Thats it!
+
+Prepare the work space inside the Husarion:
 cd ~
 mkdir -r assignment_ws/src
 cd ~/ assignment_ws
 catkin_make
 
-Clone this repository to your workspace:
-
-```bash
-cd ~/assignment_ws/src
-git clone https://github.com/husarion/rosbot_ros.git -b noetic
-```
-and follow the instructions given on husarion/rosbt_ros branch noetic.
-
-Install dependencies:
-
-```bash
-cd ~/assignment_ws
-rosdep install --from-paths src --ignore-src -r -y
-```
 Build the workspace:
 
 ```bash
 cd ~/assignment_ws
 catkin_make
 ```
-From this moment you can use rosbot simulations. Please remember that each time, when you open new terminal window, you will need to load system variables or simply add this command on your .bashrc file.
+Please remember that each time, when you open new terminal window, you will need to load system variables or simply add this command to .bashrc file of ROSbot.
 
 ```bash
 source ~/assignment_ws/devel/setup.sh
 ```
 ### Clone the Aruco Navigation Package
 
-To incorporate this repository into the "src" folder of your recently established Catkin workspace, execute the following command in your terminal:
+To incorporate this repository into the "src" folder of your recently established Catkin workspace, execute the following command in the terminal:
 
 ```bash
 git clone https://github.com/Melih199/Exp_rob_assignment_1.git
-cd script
+cd Exp_rob_assignment_1
+git checkout Rosbot_aruco
+cd /assignment_1/script
 chmod +x *py
 ```
-
 ### Make the Package
 We'll need to "make" everything in our catkin workspace so that the ROS environment knows about our new package. Execute the given commands in your terminal.
 
@@ -79,7 +68,7 @@ catkin_make
 ```
 
 ### Let your gazebo know the ArUco markers
-Add these commands to your .bashrc file 
+Add these commands to ROSbot .bashrc file 
 ```bash
 export GAZEBO_MODEL_PATH="${CATKIN_ENV_HOOK_WORKSPACE}/../src/Exp_rov_assignment_1/assignment_1/models/:${GAZEBO_MODEL_PATH}"
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:<PATH_TO_YOUR_assignment_ws>/src/Exp_rov_assignment_1/assignment_1/models
@@ -88,20 +77,15 @@ Fantastic! The installation process is complete, and now it's time to delve into
 
 ## Launch
 
-The execution of the launch command will provide us six nodes these are:
--  joint_state_controller_spawner from controller_manager package
--  rosbot_spawn from gazebo_ros package
--  robot_state_publisher from robot_state_publisher package
--  rviz from rviz package
+The execution of the launch command of the aruco_navigation.launch file will provide us two nodes these are:
 -  aruco_detector from assignment_1 package
 -  robot_control from assignment_1 package
 
-In this repository we will analyze the two nodes from our package(assignment_1). You can find the necessary information about the other nodes on Ros wiki.
+The execution of the launch command of the all.launch file will provide us necessary nodes to deal with ROSbot such as: lidar and camera...
 
-**For simulation**:
-```bash
-roslaunch assignment_1 aruco_navigation.launch
-```
+In this repository we will analyze the two nodes from our package(assignment_1). You can find the necessary information about the other nodes on Husarion webpage.
+
+
 
 ### aruco_detector node ###
 
@@ -223,11 +207,6 @@ def control_loop(self):
 
 
 
-**For real robot**:
-```bash
-roslaunch tutorial_pkg all.launch
-roslaunch assignment_1 aruco_navigation.launch
-```
 
 ## Run the Node
 
