@@ -149,7 +149,7 @@ info_msg.marker_size = [size]
 self.aruco_info_pub.publish(info_msg)
 ```
 
-### robot_control node ###
+### robot_control node 
 
 This node is a simple PID controller for our robot it is using the information proided from  aruco_info topic and published the velocity commands 
 on /cmd_vel topic. To better understanding of this node check the flowchart above.
@@ -198,7 +198,7 @@ def control_loop(self):
             rate.sleep()
 ```
 
-### For real robot check the Rosbot_aruco branch ###:
+### For real robot check the Rosbot_aruco branch !!!
 ```bash
 cd ~/Exp_rob_assignment_1
 git checkout Rosbot_aruco
