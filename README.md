@@ -1,4 +1,4 @@
-# Aruco Navigation - Rosbot in Simulation
+# Aruco Navigation - Rosbot
 This project is developed by:
 1. *Natnael Berhanu Takele - s5446838*
 2. *Mustafa Melih Toslak - s5431021*
