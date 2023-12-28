@@ -76,20 +76,20 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:<PATH_TO_YOUR_assignment_ws>/src/Exp
 Fantastic! The installation process is complete, and now it's time to delve into the exciting world of robot exploration and experimentation. Let the robotics adventure begin! 🤖✨
 
 ### SSH Connection
--First of all connect the robot to router same with your laptop.
--Check the ip adress of the ROSbot with this command:
+- First of all connect the robot to router same with your laptop.
+- Check the ip adress of the ROSbot with this command:
  ```bash
    ifconfig
  ```
--Add these commands to your .bashrc file:
+- Add these commands to your .bashrc file:
  ```bash
   #ROSBOT << Real Robot >>
   export ROS_MASTER_URI=http://<IP_of_ROSbot>:11311
   export ROS_IP=<IP_of_ROSbot>
  ```
 - Unplug the connections(screen,keyboard,mouse)
-- 
-
+- login in ssh to husarion@<IP_of_ROSbot> passport:husarion
+- 🤖✨🤖✨🤖✨ We are ready!!! Put the robot on the prepared environment🤖✨🤖✨🤖✨
 
 ## Launch
 
@@ -104,6 +104,10 @@ The execution of the launch command of the all.launch file will provide us neces
 roslaunch tutorial_pkg all.launch
 roslaunch assignment_1 aruco_navigation.launch
 ```
+
+<img src="https://github.com/Melih199/Exp_rob_assignment_1/blob/Rosbot_aruco_simulation/Rosbot%20Real%20World%20Scenario.gif" width="1000" height="800"/>
+
+
 In this repository we will analyze the two nodes from our package(assignment_1). You can find the necessary information about the other nodes on Husarion webpage.
 
 
@@ -199,74 +203,3 @@ def control_loop(self):
             self.print_infos()
             rate.sleep()
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Run the Node
-
-Executing the provided command will activate the controller script responsible for orchestrating the robot's movements.
-
-```bash
-rosrun assignment_1 robot_control.py
-```
-
-<img src="https://github.com/Melih199/Exp_rob_assignment_1/blob/Rosbot_aruco_simulation/simulation_node.gif" width="1000" height="800"/>
-
-<img src="https://github.com/Melih199/Exp_rob_assignment_1/blob/Rosbot_aruco_simulation/Rosbot%20Real%20World%20Scenario.gif" width="1000" height="800"/>
-
-
-
-
-
-## Conclusion and Future Improvements
-
-In concluding our Aruco Navigation project, our team has successfully developed a robust system for autonomous robot navigation using Aruco markers. The project's structure and implementation, detailed in the README, lay the foundation for future enhancements and applications.
-
-### Achievements:
-
-1. **Aruco Navigation:** The project achieves its primary goal of enabling a ROSbot robot to autonomously follow a predefined sequence of Aruco markers while maintaining a safe distance. The utilization of ROS, Python, and OpenCV contributes to the efficiency of the navigation system.
-
-2. **Marker Logic:** The distinctive logic associated with each Aruco marker (11, 12, 13, and 15) provides a systematic approach, ensuring a seamless navigation sequence. The markers' roles in instructing the robot to rotate, detect subsequent markers, and reach specific destinations add a layer of intelligence to the navigation process.
-
-3. **Flowchart:** The included flowchart offers a comprehensive and deep insight into the algorithmic underpinnings of the navigation system. This serves as a valuable resource for understanding the logical flow and procedural steps governing the robot's movements.
-
-### Future Improvements:
-
-1. **Dynamic Marker Handling:** Enhance the system to dynamically adapt to changes in the environment, allowing the robot to intelligently respond to the appearance or disappearance of Aruco markers during navigation.
-
-2. **Obstacle Avoidance:** Integrate obstacle detection and avoidance mechanisms to further enhance the robot's ability to navigate in complex environments, ensuring safety and efficiency.
-
-3. **Localization Enhancements:** Explore advanced localization techniques to improve the robot's accuracy in identifying and reaching Aruco markers, especially in scenarios with multiple markers in proximity.
-
-4. **Human-Robot Interaction:** Implement features for human-robot interaction, allowing users to influence or modify the robot's navigation behavior based on real-time input or commands.
-
-5. **Performance Optimization:** Conduct performance optimization to ensure efficient resource utilization and real-time responsiveness, particularly in resource-constrained environments.
-
-By addressing these potential improvements, the Aruco Navigation project can evolve into a more versatile and adaptive robotic system, extending its applicability to various real-world scenarios.
-
