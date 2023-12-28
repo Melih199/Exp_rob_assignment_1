@@ -95,12 +95,77 @@ Fantastic! The installation process is complete, and now it's time to delve into
 
 ## Launch
 
-Upon execution of the provided command in the terminal, Gazebo simulation will be initiated, accompanied by the automatic launch of the ROS Master.
+The execution of the launch command will provide us six nodes these are:
+-  joint_state_controller_spawner from controller_manager package
+-  rosbot_spawn from gazebo_ros package
+-  robot_state_publisher from robot_state_publisher package
+-  rviz from rviz package
+-  aruco_detector from assignment_1 package
+-  robot_control from assignment_1 package
+
+In this repository we will analyze the two nodes from our package(assignment_1). You can find the necessary information about the other nodes on Ros wiki.
 
 **For simulation**:
 ```bash
 roslaunch assignment_1 aruco_navigation.launch
 ```
+
+### aruco_detector node ###
+
+In this node we used the image information provided from /camera/color/image_raw and /camera/color/camera_info topics to find the ArUco markers.
+
+---python
+self.camera_sub = rospy.Subscriber('/camera/color/image_raw', Image, self.image_callback)
+self.camera_info_sub = rospy.Subscriber('/camera/color/camera_info', CameraInfo, self.camera_callback)
+
+---
+
+Then we used this information to calculate the marker_center and marker_size.
+
+---python
+marker_center_x = (corners[0][0][0][0] + corners[0][0][1][0] +
+                                corners[0][0][2][0] + corners[0][0][3][0]) / 4
+marker_center_y = (corners[0][0][0][1] + corners[0][0][1][1] +
+                                corners[0][0][2][1] + corners[0][0][3][1]) / 4            
+
+marker_center = [marker_center_x, marker_center_y]
+            
+top_right = [corners[0][0][0][0], corners[0][0][0][1]]
+bottom_right = [corners[0][0][3][0], corners[0][0][3][1]]
+x_cord = top_right[0] - bottom_right[0]
+y_cord = top_right[1] - bottom_right[1]
+size = int(np.sqrt(np.power(x_cord, 2) + np.power(y_cord, 2)))
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **For real robot**:
 ```bash
 roslaunch tutorial_pkg all.launch
