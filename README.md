@@ -103,6 +103,8 @@ In this repository we will analyze the two nodes from our package(assignment_1).
 roslaunch assignment_1 aruco_navigation.launch
 ```
 
+<img src="https://github.com/Melih199/Exp_rob_assignment_1/blob/Rosbot_aruco_simulation/simulation_node.gif" width="1000" height="800"/>
+
 ### aruco_detector node ###
 
 In this node we used the image information provided from /camera/color/image_raw and /camera/color/camera_info topics to find the ArUco markers.
@@ -196,54 +198,12 @@ def control_loop(self):
             rate.sleep()
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-**For real robot**:
+**For real robot check the Rosbot_aruco branch**:
 ```bash
-roslaunch tutorial_pkg all.launch
-roslaunch assignment_1 aruco_navigation.launch
+cd ~/Exp_rob_assignment_1
+git checkout Rosbot_aruco
 ```
-
-## Run the Node
-
-Executing the provided command will activate the controller script responsible for orchestrating the robot's movements.
-
-```bash
-rosrun assignment_1 robot_control.py
-```
-
-<img src="https://github.com/Melih199/Exp_rob_assignment_1/blob/Rosbot_aruco_simulation/simulation_node.gif" width="1000" height="800"/>
-
-<img src="https://github.com/Melih199/Exp_rob_assignment_1/blob/Rosbot_aruco_simulation/Rosbot%20Real%20World%20Scenario.gif" width="1000" height="800"/>
-
-
-
-
+This command will change the branch of the repository for real robot. Then follow the instructions given in the readme file.
 
 ## Conclusion and Future Improvements
 
