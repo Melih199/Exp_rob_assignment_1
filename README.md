@@ -137,6 +137,23 @@ y_cord = top_right[1] - bottom_right[1]
 size = int(np.sqrt(np.power(x_cord, 2) + np.power(y_cord, 2)))
 ```
 
+Finally the node publishes the marker_center, marker_size and camera_center(provided with /camera/color/camera_info topic).
+
+```python
+self.aruco_info_pub = rospy.Publisher('aruco_info', Aruco_info, queue_size=10)
+...
+def camera_callback(self, camera_msg):
+        self.camera_center_x = camera_msg.width / 2
+        self.camera_center_y = camera_msg.height / 2
+...
+info_msg = Aruco_info()
+info_msg.id = int(ids[0][0])
+info_msg.camera_center = camera_center
+info_msg.marker_center = marker_center
+info_msg.marker_size = [size]            
+self.aruco_info_pub.publish(info_msg)
+
+
 
 
 
