@@ -75,6 +75,22 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:<PATH_TO_YOUR_assignment_ws>/src/Exp
 ```
 Fantastic! The installation process is complete, and now it's time to delve into the exciting world of robot exploration and experimentation. Let the robotics adventure begin! 🤖✨
 
+### SSH Connection
+-First of all connect the robot to router same with your laptop.
+-Check the ip adress of the ROSbot with this command:
+ ```bash
+   ifconfig
+ ```
+-Add these commands to your .bashrc file:
+ ```bash
+  #ROSBOT << Real Robot >>
+  export ROS_MASTER_URI=http://<IP_of_ROSbot>:11311
+  export ROS_IP=<IP_of_ROSbot>
+ ```
+- Unplug the connections(screen,keyboard,mouse)
+- 
+
+
 ## Launch
 
 The execution of the launch command of the aruco_navigation.launch file will provide us two nodes these are:
@@ -83,8 +99,12 @@ The execution of the launch command of the aruco_navigation.launch file will pro
 
 The execution of the launch command of the all.launch file will provide us necessary nodes to deal with ROSbot such as: lidar and camera...
 
+**For real robot**:
+```bash
+roslaunch tutorial_pkg all.launch
+roslaunch assignment_1 aruco_navigation.launch
+```
 In this repository we will analyze the two nodes from our package(assignment_1). You can find the necessary information about the other nodes on Husarion webpage.
-
 
 
 ### aruco_detector node ###
