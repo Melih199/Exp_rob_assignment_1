@@ -91,7 +91,7 @@ Fantastic! The installation process is complete, and now it's time to delve into
 - On your laptop login in ssh to husarion@<IP_of_ROSbot> passport:husarion
    ```bash
      ssh husarion@<IP_of_ROSbot>
- ```
+   ```
 - 🤖✨🤖✨🤖✨ We are ready!!! Put the robot on the prepared environment🤖✨🤖✨🤖✨
 
 ## Launch
@@ -119,8 +119,8 @@ In this repository we will analyze the two nodes from our package(assignment_1).
 In this node we used the image information provided from /camera/color/image_raw and /camera/color/camera_info topics to find the ArUco markers.
 
 ```python
-self.camera_sub = rospy.Subscriber('/camera/color/image_raw', Image, self.image_callback)
-self.camera_info_sub = rospy.Subscriber('/camera/color/camera_info', CameraInfo, self.camera_callback)
+self.camera_sub = rospy.Subscriber('/camera/rgb/image_raw', Image, self.image_callback)
+self.camera_info_sub = rospy.Subscriber('/camera/rgb/camera_info', CameraInfo, self.camera_callback)
 
 ```
 
@@ -168,7 +168,7 @@ on /cmd_vel topic. To better understanding of this node check the flowchart abov
 self.vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 self.aruco_info_sub = rospy.Subscriber('aruco_info', Aruco_info, self.aruco_callback)
 ...
-def control_loop(self):
+ def control_loop(self):
         self.marker_turn=0
         rate = rospy.Rate(20)
         while not rospy.is_shutdown():
@@ -203,6 +203,6 @@ def control_loop(self):
                     else:
                         rospy.signal_shutdown("exit")
             
-            self.print_infos()
+  
             rate.sleep()
 ```
