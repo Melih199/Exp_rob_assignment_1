@@ -12,7 +12,6 @@ This project is developed by:
  4. Add "Why we used simulation" (time, cost ext)
  5. Explain the nodes, msgs that have been used for simulation and realrobot
     
-
 ## Repository Organization
 Within this repository, you will discover the "assignment_1" folder, meticulously organized to include all essential files, complemented by a comprehensive README.md file providing detailed guidance and information.
 
@@ -86,7 +85,12 @@ cd ~/assignment_ws
 catkin_make
 ```
 
-### Let your sytem
+### Let your gazebo know the ArUco markers
+Add these commands to your .bashrc file 
+```bash
+export GAZEBO_MODEL_PATH="${CATKIN_ENV_HOOK_WORKSPACE}/../src/Exp_rov_assignment_1/assignment_1/models/:${GAZEBO_MODEL_PATH}"
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:<PATH_TO_YOUR_assignment_ws>/src/Exp_rov_assignment_1/assignment_1/models
+```
 Fantastic! The installation process is complete, and now it's time to delve into the exciting world of robot exploration and experimentation. Let the robotics adventure begin! 🤖✨
 
 ## Launch
