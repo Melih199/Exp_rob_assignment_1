@@ -152,7 +152,7 @@ info_msg.camera_center = camera_center
 info_msg.marker_center = marker_center
 info_msg.marker_size = [size]            
 self.aruco_info_pub.publish(info_msg)
-
+```
 
 
 
