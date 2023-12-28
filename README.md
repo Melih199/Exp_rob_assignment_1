@@ -88,7 +88,10 @@ Fantastic! The installation process is complete, and now it's time to delve into
   export ROS_IP=<IP_of_ROSbot>
  ```
 - Unplug the connections(screen,keyboard,mouse)
-- login in ssh to husarion@<IP_of_ROSbot> passport:husarion
+- On your laptop login in ssh to husarion@<IP_of_ROSbot> passport:husarion
+   ```bash
+     ssh husarion@<IP_of_ROSbot>
+ ```
 - 🤖✨🤖✨🤖✨ We are ready!!! Put the robot on the prepared environment🤖✨🤖✨🤖✨
 
 ## Launch
