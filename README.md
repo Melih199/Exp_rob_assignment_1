@@ -114,15 +114,15 @@ roslaunch assignment_1 aruco_navigation.launch
 
 In this node we used the image information provided from /camera/color/image_raw and /camera/color/camera_info topics to find the ArUco markers.
 
----python
+```python
 self.camera_sub = rospy.Subscriber('/camera/color/image_raw', Image, self.image_callback)
 self.camera_info_sub = rospy.Subscriber('/camera/color/camera_info', CameraInfo, self.camera_callback)
 
----
+```
 
 Then we used this information to calculate the marker_center and marker_size.
 
----python
+```python
 marker_center_x = (corners[0][0][0][0] + corners[0][0][1][0] +
                                 corners[0][0][2][0] + corners[0][0][3][0]) / 4
 marker_center_y = (corners[0][0][0][1] + corners[0][0][1][1] +
@@ -135,8 +135,7 @@ bottom_right = [corners[0][0][3][0], corners[0][0][3][1]]
 x_cord = top_right[0] - bottom_right[0]
 y_cord = top_right[1] - bottom_right[1]
 size = int(np.sqrt(np.power(x_cord, 2) + np.power(y_cord, 2)))
-
----
+```
 
 
 
